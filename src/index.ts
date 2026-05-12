@@ -1,20 +1,10 @@
 import { ExtendedClient } from "./structs/ExtendedClient"
 export * from "colors";
+import config from "./config.json"
 
 const client = new ExtendedClient();
 
 client.start();
 
-export { client }
+export { client, config }
 
-client.on("clientReady", () => {
-    console.log("Bot online!". green)
-})
-
-client.on("messageCreate", (message) =>{
-    if (message.author.id == client.user?.id) return;
-
-    message.reply({
-            content: `Olá ${message.author.username}`
-    })
-})
